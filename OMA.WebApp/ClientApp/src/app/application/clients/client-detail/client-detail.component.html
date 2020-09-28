@@ -1,0 +1,116 @@
+<div class="details">
+    <div class="row">
+        <div class="col-md-8 left">
+            <div class="box shadoww">
+                <h3>{{ client.FirstName + " " +  client.LastName }}</h3>
+                <div class="group-details">
+                    <p>{{ client.CompanyName }}</p>
+                    <p>{{ client.Email }}</p>
+                    <p>{{ client.PhoneNumber }}</p>
+                </div>
+            </div>
+            <div class="box shadoww">
+                <div class="group-details card-info">
+                    <h3>Bank account info</h3>
+                    <p><span>Bank Account Number:</span> &nbsp;&nbsp; {{ client.BankAccountNumber }}</p>
+                    <p><span>Iban:</span> &nbsp;&nbsp; {{ client.Iban }}</p>
+                    <p><span>Swift:</span> &nbsp;&nbsp; {{ client.Swift }}</p>
+                </div>
+            </div>
+            <div class="box shadoww">
+                <h3>Projects</h3>
+                <table *ngIf="offerList.length != 0" class="tablee">
+                    <thead>
+                        <tr>
+                            <td>Offer</td>
+                            <td>Status</td>
+                            <td>Price</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let offer of offerList">
+                            <td>{{ offer.Name }}</td>
+                            <td>{{ offer.Status }}</td>
+                            <td>{{ offer.Price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="offerList.length == 0">
+                    <p>No projects</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 right">
+            <div class="box shadoww">
+                <div class="group">
+                    <span class="material-icons">
+                        person
+                    </span>
+                    <p>{{ client.FirstName + " " +  client.LastName }}</p>
+                </div>
+
+                <div class="group">
+                    <span class="material-icons">
+                        apartment
+                    </span>
+                    <p>{{ client.CompanyName }}</p>
+                </div>
+
+                <div class="group">
+                    <span class="material-icons">
+                        phone_iphone
+                    </span>
+                    <p>{{ client.PhoneNumber }}</p>
+                </div>
+
+                <div class="group">
+                    <span class="material-icons">
+                        location_on
+                    </span>
+                    <div>
+                        <p>{{ client.Country}}</p>
+                        <p>{{ client.City}}</p>
+                        <p>{{ client.Address + " " + client.StreetNumber}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box-buttons">
+                <button type="button" routerLink="/app/clients/{{ client.ClientId }}/edit" class="btnn btnn-bg">Edit</button>
+                <button type="button" (click)="onRemove()" style="background-color: white; color: #222222;" class="btnn btnn-bg shadoww">Remove</button>
+            </div>
+            <div class="box shadoww">
+                <div class="group">
+                    <div class="col-md-6">
+                        <h6>Number of projects: </h6> 
+                    </div>
+                    <h6 id="num"> {{ numberOfProjects }}</h6>
+                </div>
+                <div class="group">
+                    <div class="col-md-6">
+                        <h6>Active projects:  </h6>
+                    </div> 
+                    <h6 id="num"> {{activeProjects}}</h6>
+                </div>
+                 <div class="group">
+                    <div class="col-md-6">
+                        <h6>Finished projects: </h6>
+                    </div>
+                     <h6 id="num">{{finishedProjects}}</h6>
+                 </div>
+                 <div class="group">
+                    <div class="col-md-6">
+                        <h6>Paid: </h6>
+                    </div>
+                     <h6 id="num">{{paidProjects}}</h6>
+                 </div>
+                 <div class="group">
+                    <div class="col-md-6">
+                        <h6>Remaining to pay: </h6>
+                    </div>
+
+                        <h6 id="num">{{remainingToPay}}</h6>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>

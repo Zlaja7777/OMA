@@ -1,0 +1,46 @@
+.workers {
+    padding: 0 40px;
+}
+
+.workers h3 {
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+.row input, .row button {
+    width: 100%;
+    height: 100%;
+}
+
+.search-input {
+    border: none;
+    background-color: white;
+    outline: none;
+    margin-left: 5px;
+    padding: 16px 16px 16px 64px !important;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: .5em;
+    border-radius: 10px;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 110px;
+    justify-content: center;
+    color: gray;
+}
+
+.search-row {
+    margin-bottom: 40px;
+}
+
+.search-row > div {
+    margin: 10px 0;
+}

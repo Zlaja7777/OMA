@@ -1,0 +1,215 @@
+table td{
+  text-align: center;
+}
+#rows{
+  color: #6dabe4;
+}
+.row{
+  margin-left: 20px;
+}
+.box-buttons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.box-buttons button {
+  margin: 10px 0;
+  transform: translateX(0);
+  width: 300px;
+} 
+.row{
+  min-height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+.box {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  width: 300px;
+}
+
+
+
+
+
+ .group {
+  display: flex;
+  align-items: center;
+ 
+}
+
+
+.group p {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+#rows{
+  color: #6dabe4;
+}
+
+.empty-box {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+td span {
+color: #6dabe4;
+cursor: pointer;
+}
+
+td span:hover {
+color: #2676c2;
+}
+
+a.btn {
+float: right;
+background-color: transparent;
+color: #6dabe4;;
+font-size: 14px;
+margin: 0 10px 10px 0;
+}
+
+
+
+/* tbody > tr:last-child {
+color: red !important; 
+} */
+
+@media screen and (max-width: 992px)
+{
+/* .dashboard table td {
+  padding: 0;
+} */
+}
+
+@media screen and (max-width: 700px) {
+.dashboard {
+  padding: 0;
+}
+.dashboard h4, .dashboard h3 {
+  text-align: center;
+}
+}
+
+
+@media screen and (max-width: 576px) {
+
+  .container-table100 {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+}
+
+
+/*table*/
+
+
+/* ------------------------------------ */
+a {
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ------------------------------------ */
+h1,h2,h4,h5,h6 {margin: 0px;}
+
+p {margin: 0px;}
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+
+/* ------------------------------------ */
+input {
+  display: block;
+    outline: none;
+    border: none !important;
+}
+
+textarea {
+  display: block;
+  outline: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+/* ------------------------------------ */
+button {
+    outline: none !important;
+    border: none;
+  
+}
+
+iframe {
+    border: none !important;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+
+
+@media screen and (max-width: 992px) {
+
+  #mob{
+    margin-top: 20px;
+    height: 100px;
+  }
+  .box-buttons button {
+    margin-left: 20px;
+    transform: translateX(0);
+    width: 300px;
+    margin-top: 20px;
+  } 
+  .row{
+    min-height: 90vh;
+  }
+  #rowDate{
+    margin-top: -20px;
+    margin-left: 20px;
+  }
+  #novi{
+      margin-bottom: 16px;
+     
+  }
+  #novi2{
+    margin-bottom: 10px;
+  }
+ 
+
+  
+}

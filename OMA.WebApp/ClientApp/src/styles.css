@@ -1,0 +1,190 @@
+You can add global styles to this file, and also import other style files
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins' !important;
+    height: 100%;
+}
+
+.application-content {
+    font-size: 14px;
+}
+
+.text-waiting {
+    color: #173F5F;
+}
+
+.bag-waiting {
+    background-color: #173F5F;
+}
+
+.text-accepted {
+    color: #20639B;
+}
+
+.bag-accepted {
+    background-color: #20639B;
+}
+
+.text-in-progress {
+    color: #F6D55C;
+}
+
+.bag-in-progress {
+    background-color: #F6D55C;
+}
+
+
+.text-denied {
+    color: #ED553B;
+}
+
+.bag-denied {
+    background-color: #ED553B;
+}
+
+.text-done {
+    color: #3CAEA3;    
+}
+
+.bag-done {
+    background-color: #3CAEA3;
+}
+
+.loading-spinner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(247, 247, 247);
+    z-index: 5;
+}
+
+.box-shadow {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(31,45,65,.15);
+}
+
+span#menu {
+    font-size: 40px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgb(27, 176, 235);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.shadoww {
+    -webkit-box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.1);
+}
+
+.myPanelClass{
+    margin-top: 0px;
+     background-color: transparent;
+     box-shadow: none !important;
+  }
+  
+  .mySelectClass {
+    padding-top: 12px;
+     background-color: transparent;
+     box-shadow: none !important;
+
+  }
+
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+  ::ng-deep .mat-select-arrow {
+      display: none;
+  }
+  
+   .dropdown{
+   width:200px;
+   height:40px;
+   background-color: white;
+   text-align: center;
+   vertical-align: middle;
+   box-shadow: none !important;
+
+   }
+/* tablee */
+.tablee {
+    width: 100%;
+  
+    background-color: white;
+    border-radius: 10px;
+}
+
+.tablee thead {
+    color: #222222;
+    font-weight: bold;
+}
+
+.tablee tbody {
+    color: rgb(78, 78, 78);
+    font-size: 15px;
+    
+}
+
+.tablee tr {
+    display: flex;
+    height: 70px;
+    border-radius: 10px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.tablee tbody tr:not(:first-child) {
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+
+.tablee tr td{
+    flex: 1;
+    padding: 25px;
+}
+
+.tablee tbody tr:hover {
+    background-color: rgb(247, 247, 247);
+}
+
+@media screen and (max-width: 855px) {
+    .first-two tr td:not(:nth-child(1)):not(:nth-child(2)) {
+        display: none;
+    }
+}
+
+
+/* button */
+.btnn {
+    background: #6dabe4;
+    color: #fff;
+    font-size: 14px;
+    transform: translateX(5px); 
+    border-radius: 10px;
+    transition: .3s;
+    border: none;
+    padding: 10px 20px;
+}
+
+.btnn:hover {
+    background: #4d91d1;
+}
+
+.btnn-bg {
+    padding: 20px 40px;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,220 @@
+<div class="main">
+
+    <section [ngStyle]="{'display': isLoading ? 'none' : 'block'}" class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <div *ngIf="error" class="alert alert-danger">
+                        <p>{{ error }}</p>
+                    </div>
+                    <h2 class="form-title">Add worker</h2>
+                    <form class="register-form" id="register-form" 
+                    #registrationForm="ngForm"
+                        (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="sm-group">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <div>
+                                                    <label for="firstName"><span class="material-icons">
+                                                            person
+                                                        </span></label>
+                                                    <input type="text" id="firstName" placeholder="First name"
+                                                        name="firstName" required #firstName="ngModel" ngModel />
+                                                </div>
+                                            </div>
+                                            <div class="alert-div"
+                                                *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                                                <span *ngIf="firstName.errors.required">
+                                                    First name is required.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="lastName"><span class="material-icons">
+                                                        person
+                                                    </span></label>
+                                                <input type="text" name="lastName" id="lastName" placeholder="Last name"
+                                                    required #lastName="ngModel" ngModel />
+                                            </div>
+                                            <div class="alert-div"
+                                                *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                                <span *ngIf="lastName.errors.required">
+                                                    Last name is required.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sm-group">
+                                    <div class="form-group">
+                                        <label for="email"><span class="material-icons">
+                                                mail
+                                            </span></label>
+                                        <input type="email" name="email" id="email" placeholder="Email" required email
+                                            #email="ngModel" ngModel />
+                                    </div>
+                                    <div class="alert-div" *ngIf="email.invalid && (email.dirty || email.touched)">
+                                        <span *ngIf="email.errors.required">
+                                            Email is required.
+                                        </span>
+                                        <span *ngIf="email.errors.email">
+                                            Enter valid email.
+                                        </span>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="address"><span class="material-icons">
+                                                        home
+                                                    </span></label>
+                                                <input type="text" name="address" id="address" placeholder="Address"
+                                                    required #address="ngModel" ngModel />
+                                            </div>
+                                            <div class="alert-div"
+                                                *ngIf="address.invalid && (address.dirty || address.touched)">
+                                                <span *ngIf="address.errors.required">
+                                                    Address is required.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="streetNumber"><span class="material-icons">
+                                                        home
+                                                    </span></label>
+                                                <input type="text" name="streetNumber" id="streetNumber"
+                                                    placeholder="Street number" required #streetNumber="ngModel"
+                                                    ngModel />
+                                            </div>
+                                            <div class="alert-div"
+                                                *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched)">
+                                                <span *ngIf="streetNumber.errors.required">
+                                                    Street number is required.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="countryId"><span class="material-icons">
+                                                home
+                                            </span></label>
+                                        <select name="countryId" id="countryId" required (change)="onChange($event)"
+                                            #countryId="ngModel" [(ngModel)]="formCountryId">
+                                            <option [ngValue]="undefined" selected disabled>Select country</option>
+                                            <option *ngFor="let country of countries" [value]="country.id">
+                                                {{ country.name }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="alert-div"
+                                        *ngIf="countryId.invalid && (countryId.dirty || countryId.touched)">
+                                        <span *ngIf="countryId.errors.required">
+                                            Please select country.
+                                        </span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="sm-group">
+                                    <div class="row">
+                                        <div class="col-sm" style="margin-top: -2px;">
+                                            <div class="form-group">
+                                                <label for="startDate">Start date<span class="material-icons">
+                                                        
+                                                    </span></label>
+                                                <input type="datetime-local" name="startDate" id="startDate"
+                                                    placeholder="" required #startDate="ngModel" ngModel style="text-align: center;" />
+                                            </div>
+                                            <div class="alert-div"
+                                                *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)">
+                                                <span *ngIf="startDate.errors.required">
+                                                    Start date is required.
+                                                </span>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="sm-group">
+                                    <div class="form-group">
+                                        <label for="bankAccountNumber"><span class="material-icons">
+                                                credit_card
+                                            </span></label>
+                                        <input type="text" minlength="10" name="bankAccountNumber"
+                                            id="bankAccountNumber" placeholder="Bank account number" required
+                                            #bankAccountNumber="ngModel" ngModel />
+                                    </div>
+                                    <div class="alert-div"
+                                        *ngIf="bankAccountNumber.invalid && (bankAccountNumber.dirty || bankAccountNumber.touched)">
+                                        <span *ngIf="bankAccountNumber.errors.required">
+                                            Bank account number is required.
+                                        </span>
+                                        <span *ngIf="bankAccountNumber.errors.minlength">
+                                            Enter valid bank account number.
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNumber"><span class="material-icons">
+                                                call
+                                            </span></label>
+                                        <input type="text" minlength="8" name="phoneNumber" id="phoneNumber" placeholder="Phone number"
+                                            required #phoneNumber="ngModel" ngModel />
+                                    </div>
+                                    <div class="alert-div" *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+                                        <span *ngIf="phoneNumber.errors.required">
+                                            Phone number is required.
+                                        </span>
+                                        <span *ngIf="phoneNumber.errors.minlength">
+                                            Enter valid phone nuber.
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cityId"><span class="material-icons">
+                                                home
+                                            </span></label>
+                                        <select name="cityId" id="cityId" required #cityId="ngModel"
+                                            [(ngModel)]="formCityId">
+                                            <option [ngValue]="undefined" selected disabled>Select city</option>
+                                            <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="alert-div" *ngIf="cityId.invalid && (cityId.dirty || cityId.touched)">
+                                        <span *ngIf="cityId.errors.required">
+                                            Please select city.
+                                        </span>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                            <input type="hidden" name="addressId" ngModel />
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group form-button">
+                                    
+                                        <button *ngIf = "!editMode" [disabled]="!registrationForm.valid" style="border: none;" type="submit" class="form-submit">
+                                            Add worker
+                                        </button>
+                                        <button *ngIf = "editMode" [disabled]="!registrationForm.valid" style="border: none;" type="submit" class="form-submit">
+                                            Save worker
+                                        </button>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>

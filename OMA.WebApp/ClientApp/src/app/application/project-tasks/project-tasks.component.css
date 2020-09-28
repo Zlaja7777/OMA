@@ -1,0 +1,367 @@
+
+.dashboard-offers, .dashboard-clients {
+
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.dashboard table th {
+  color: rgb(247, 247, 247);
+  font-weight: normal;
+}
+.box {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  width: 300px;
+  box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.1);
+
+}
+
+/*  */
+
+.dashboard table td {
+  color: #6dabe4;
+
+  /* text-align: center; */
+}
+.btn-danger{
+  color: white;
+  margin-top: -10px;
+  margin-right: 2px;
+}
+.badge {
+padding: 8px;
+color: white;
+}
+
+
+
+ .group {
+  display: flex;
+  align-items: center;
+ 
+}
+
+
+.group p {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+
+.btn-details {
+  background: #6dabe4;
+  color: #fff;
+  width: auto;
+
+  border-radius: 10px;
+}
+#rows{
+  color: #6dabe4;
+}
+
+.empty-box {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+td span {
+color: #6dabe4;
+cursor: pointer;
+}
+
+td span:hover {
+color: #2676c2;
+}
+
+
+
+
+/* tbody > tr:last-child {
+color: red !important; 
+} */
+
+@media screen and (max-width: 992px)
+{
+/* .dashboard table td {
+  padding: 0;
+} */
+}
+
+@media screen and (max-width: 700px) {
+.dashboard {
+  padding: 0;
+}
+.dashboard h4, .dashboard h3 {
+  text-align: center;
+}
+}
+
+
+@media screen and (max-width: 576px) {
+
+  .container-table100 {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+}
+
+
+/*table*/
+
+
+/* ------------------------------------ */
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ------------------------------------ */
+h1,h2,h4,h5,h6 {margin: 0px;}
+
+p {margin: 0px;}
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+
+/* textarea {
+  display: block;
+  outline: none;
+} */
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+/* ------------------------------------ */
+button {
+    outline: none !important;
+    border: none;
+  
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+
+table  {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 99%;
+  box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.1);
+}
+table th{
+  font-weight: bold;
+
+}
+
+
+/* table td, table th {
+  padding-left: 8px;
+} */
+table tbody tr:last-child {
+  border: 0;
+}
+
+table td, table th {
+  text-align: center;
+  font-size: 15px;
+  padding-top: 30px;
+
+  
+}
+table td.l, table th.l {
+  text-align: right;
+  margin-top: 5px;
+}
+table td.c, table th.c {
+  text-align: center;
+}
+table td.r, table th.r {
+  text-align: center;
+}
+
+
+.table100-head th{
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+/* tbody tr:not(:last-child) {
+  border-bottom: 1px solid rgba(201, 201, 201, 0.589);
+} */
+
+tbody tr {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+
+
+
+/* .column1 {
+  width: 260px;
+  padding-left: 40px;
+}
+
+.column2 {
+  width: 160px;
+}
+
+.column3 {
+  width: 245px;
+}
+
+.column4 {
+  width: 110px;
+  text-align: right;
+}
+
+.column5 {
+  width: 170px;
+  text-align: right;
+}
+
+.column6 {
+  width: 222px;
+  text-align: right;
+  padding-right: 62px;
+
+} */
+
+
+@media screen and (max-width: 992px) {
+  .btn btn-danger {
+    margin-left: 20px;
+  }
+  table * {
+    position: relative;
+  }
+  table {
+    display: block;
+    width: 100%;
+  }
+  table > *, table tr, table td, table th {
+    display: block;
+  }
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    height: auto;
+    padding: 37px 0;
+  }
+  table tbody tr td {
+    padding-left: 40% !important;
+    margin-bottom: 24px;
+    font-size: 14px;
+    text-align: left;
+  }
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+  table tbody tr td:before {
+    font-size: 14px;
+   
+    line-height: 1.2;
+    font-weight: unset;
+    position: absolute;
+  
+    left: 30px;
+    top: 0;
+  }
+
+  .dashboard table tbody tr td:before {
+      color: rgb(104, 104, 104);
+      font-weight: bold;
+      padding: 20px;
+  }
+
+  .dashboard-offers table tbody tr td:nth-child(1):before {
+    content: "Task name: ";
+    margin-top: 29px;
+    color: black;
+    font-weight: bold;
+  }
+  .dashboard-offers table tbody tr td:nth-child(2):before {
+    content: "Worker: ";
+    margin-top: 29px;
+    color: black;
+    font-weight: bold;
+  }
+  .dashboard-offers table tbody tr td:nth-child(3):before {
+    content: "Amount: ";
+    margin-top: 29px;
+    color: black;
+    font-weight: bold;
+  }
+  .dashboard-offers table tbody tr td:nth-child(4):before {
+    content: "Work days: ";
+    margin-top: 29px;
+    color: black;
+    font-weight: bold;
+  }
+  .dashboard-offers table tbody tr td:nth-child(5):before {
+    content: "Paid: ";
+    margin-top: 29px;
+    color: black;
+    font-weight: bold;
+  }
+  .dashboard-offers table tbody tr td:nth-child(6):before {
+    content: "Actions: ";
+    margin-top: 29px;
+    color: black;
+    font-weight: bold;
+  }
+
+
+
+  .column4,
+  .column5,
+  .column6 {
+    text-align: left;
+  }
+  
+  .column4,
+  .column5,
+  .column6,
+  .column1,
+  .column2,
+  .column3 {
+    width: 100%;
+  }
+
+  tbody tr {
+    font-size: 14px;
+  }
+  
+  .btn-success{
+    margin-left: 60px;
+    width: 250px;
+  }
+  .box {
+    margin-left: 60px;
+    width: 310px;
+  }
+}
+

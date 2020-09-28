@@ -1,0 +1,172 @@
+<div *ngIf="checkUserBool">
+    <h1>ERROR: NOT FOUND 404</h1>
+
+</div>
+
+<div *ngIf = "!checkUserBool">
+<button class="col-xs-3" style="margin-left: 35px; background-color: 
+#6dabe4; margin-bottom: 15px; border: none; height: 35px; color: white; margin-top: 2px;
+" class="btn btnn-bg" routerLink="/app/my-projects"><span class="material-icons">
+        keyboard_backspace
+</span></button>
+<div class="group">
+    <h5 style="margin-left: 35px; color: #6dabe4;">Total Budget: {{totalPrice}}</h5> 
+    <h5 style="margin-left: 35px; color: red; ">- {{costs}}</h5> 
+    <h5 style="margin-left: 35px; color: green; ">+ {{earnings}}</h5>
+    <button type="button"  class="btnn btnn-bg" style="margin-left: 35px;width: 180px; margin-bottom: 3.5px; margin-top: -10px; height: 40px;
+    padding: 10px;" (click) = "downloadAsPdf(offer.ClientId, id)">OPEN AS PDF</button>
+</div>
+<div class="offers">
+<div class="row">
+
+    <div class="col-md-8 left">
+        <div class="box shadoww">
+            <h3>{{offer.Name}}</h3>
+            <br>
+            <div class="group-details">
+                <div class="group">
+                <div class="col-md-5">
+                    <h6>Start date:</h6>
+                </div>
+                <p id="mob">{{offer.StartDate | date:'mediumDate'}}</p>
+                    
+                </div>
+                <hr/>
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6>End date:</h6>
+                    </div>  
+                       <p id="mob">{{offer.EndDate | date:'mediumDate'}}</p>
+                </div>
+                <hr/>
+
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6>Total time:</h6>
+                    </div>
+                   
+                    <p id="mob">{{offer.TotalTimeDays}} working days ({{offer.TotalTimeHours}} hrs)</p>
+                </div>
+                <hr/>
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6>Total price:</h6>
+                    </div>
+                       <p id="mob" style="font-weight:bold;">{{totalPrice}}</p>
+                </div>
+                <hr/>
+                
+                <div class="group">
+                    <div class="col-md-5">
+                    <h6>Status: </h6>
+                    </div>  
+                    <p class="badge" [ngClass]="{'bag-accepted': status == 'Accepted',
+                    'bag-done': status == 'Done',
+                    'bag-waiting': status == 'Waiting',
+                    'bag-in-progress': status == 'In progress',
+                    'bag-denied': status == 'Denied'}">
+                        {{ status }}</p>
+                    
+                </div>
+                <hr/>
+
+                <div class="group">
+                    <div class="col-md-5">
+                         <h6>Client:</h6>
+                    </div>
+                    
+                    <p id="mob" >{{client}}</p>
+                </div>
+                <hr/>
+
+                <div class="group">
+                    <div class="col-md-5">
+                         <h6>Description:</h6>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="col-md-5">
+                    </div>
+                    <p  id="desc">{{offer.Description}}</p>
+                </div>
+                
+
+            </div>
+           
+        </div>
+    </div>
+
+    
+        
+
+
+    <div class="col-md-4-right" id="pom" style="margin-left: 55px; width: 280px;">
+        <div class="box shadoww" >
+        <h6 style="color: #6dabe4;">Payment details</h6>
+        <hr />
+        <div class="group" style="margin-bottom: 5px;">
+            Paid <p style="color: #6dabe4;">{{paidInMoney}} </p> <p> of</p> <p style="color: #6dabe4; " >{{totalPrice}}</p>
+            <p style="color: #6dabe4;"> ({{progress}}%) </p>
+        </div>
+        <div class="group" style="margin-bottom: 10px;">
+            Remaining to pay: <p style="color: #6dabe4; font-weight: bold;">{{remainingToPay}}</p> 
+        </div>
+        
+             <mat-progress-bar class="box-buttons" mode="determinate" style="width: 100%; height: 20px;" value="{{progress}}"></mat-progress-bar>
+           
+        </div> 
+    
+        <div class="box-buttons" style="width: 280px; margin-bottom: 57px; " >
+            <button type="button"  class="btnn btnn-bg" routerLink="/app/transactions/{{offer.OfferId}}" style="width: 280px; margin-bottom: 3.5px; margin-top: -10px;">View transactions</button>
+
+            
+        </div>
+        <br>
+        <div class="box shadoww" style="margin-top: -70px;">
+            <h6 style="color: #6dabe4;">Task details</h6>
+            <hr />
+            <div class="group" style="margin-bottom: 10px;">
+                Finished: <p style="color: #6dabe4; font-weight: bold;">{{this.numberOfFinishedTasks}}</p> <p> of</p> <p style="color: #6dabe4; font-weight: bold; margin-right: 12px;" >{{numberOfTasks}}</p>  tasks
+                <p style="color: #6dabe4; font-weight: bold;"> ({{progresTasks}} %)</p>
+            </div>
+            <mat-progress-bar class="box-buttons" mode="determinate" style="width: 100%; height: 20px;" value="{{progresTasks}}"></mat-progress-bar>
+        </div>
+        
+       
+        <button type="button"  class="btnn btnn-bg" routerLink="/app/project-tasks/{{offer.OfferId}}" style="width: 280px; margin-bottom: 3.5px; margin-top: -10px; margin-left: -4px; "
+                >View tasks</button>
+        <div *ngIf = "isItDone" >
+            <button [ngClass]="{'bag-accepted': status == 'Accepted',
+            'bag-done': status == 'Done',
+            'bag-waiting': status == 'Waiting',
+            'bag-in-progress': status == 'In progress',
+            'bag-denied': status == 'Denied'}" style="height: 60px; color: white; border: none; border-radius: 10px;width: 280px;margin-top: 4px;" >Status:  {{ status }}</button>
+        </div>
+        <div *ngIf = "!isItDone" >
+            <mat-form-field class="mat-elevation-z0">
+            <button [ngClass]="{'bag-accepted': status == 'Accepted',
+            'bag-done': status == 'Done',
+            'bag-waiting': status == 'Waiting',
+            'bag-in-progress': status == 'In progress',
+            'bag-denied': status == 'Denied'}" style="height: 60px; color: white; border: none; border-radius: 10px;width: 280px;margin-top: -10px; padding-top: 4px;" >Status:  {{ status }}<span class="material-icons" style="float: right;" >keyboard_arrow_down</span></button>
+          <mat-select class="mat-elevation-z0"  class="mySelectClass"
+          panelClass="myPanelClass">
+            <mat-option class="mat-elevation-z0" *ngFor="let status of statusList" (click) = "ChangeStatus(status.statusId)" [value]="status.statusId" style="height: auto; box-shadow: none; ">
+                <button [ngClass]="{'bag-accepted': status == 'Accepted',
+                'bag-done': status.name == 'Done',
+                'bag-waiting': status == 'Waiting',
+                'bag-in-progress': status == 'In progress',
+                'bag-denied': status == 'Denied'}" style="height: 60px; color: white; border: none; border-radius: 10px;width: 280px;margin-top: 20px;"  >{{status.name}}</button>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+    
+        
+        
+    </div>
+</div>
+</div>
+</div>
+

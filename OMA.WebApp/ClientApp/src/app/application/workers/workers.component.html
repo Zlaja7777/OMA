@@ -1,0 +1,40 @@
+<div class="workers">
+    <h3>Workers</h3>
+    <div class="workers-content">
+        <div class="row search-row">
+            <div class="col-md-10">
+                
+                <input class="search-input shadoww" type="text" placeholder="search" (keyup)="onKeyPress($event.target.value)">
+                <span class="material-icons search-icon">
+                    search
+                    </span>
+            </div>
+            <div class="col-md-2">
+                <button type="button" routerLink="/app/workers/new" class="btnn">Add worker</button>
+            </div>
+        </div>
+        <div class="table-content">
+            <table class="tablee shadoww first-two" *ngIf="workersList.length != 0">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Phone number</td>
+                        <td>City</td>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let worker of workersList" routerLink="/app/workers/{{ worker.WorkerId }}">
+                        <td>{{ worker.FullName }}</td>
+                        <td>{{ worker.PhoneNumber }}</td>
+                        <td>{{ worker.City }}</td>
+                
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="workersList.length == 0">
+                No workers
+            </div>
+        </div>
+    </div>
+</div>

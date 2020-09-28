@@ -1,0 +1,58 @@
+<div *ngIf="isLoading" class="loading-spinner">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="main" [ngStyle]="{'display': isLoading ? 'none' : 'block'}">
+    <section class="sign-in d-flex align-items-center">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <figure><img src="../../../assets/signin-image.png" alt="sing up image"></figure>
+                    <a routerLink="/account/register" class="signup-image-link">Create an account</a>
+                </div>
+                <div class="signin-form">
+                    <div *ngIf="error" class="alert alert-danger">
+                        <p>{{ error }}</p>
+                    </div>
+                    <h2 class="form-title">Sign in</h2>
+                    <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="register-form" id="login-form">
+                        <div class="form-group">
+                            <label for="email"><span class="material-icons">
+                                    mail
+                                </span></label>
+                            <input type="email" name="email" id="email" placeholder="Email" required email
+                                #email="ngModel" ngModel />
+                        </div>
+                        <div class="alert-div" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <span *ngIf="email.errors.required">
+                                Email is required.
+                            </span>
+                            <span *ngIf="email.errors.email">
+                                Enter valid email.
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password"><span class="material-icons">
+                                    vpn_key
+                                </span></label>
+                            <input type="password" name="password" id="password" placeholder="Password" minlength="4"
+                                #password="ngModel" required ngModel />
+                        </div>
+                        <a routerLink="/account/forgotPassword" class="signup-image-link" > Forgotten password?</a>
+                        <div class="alert-div" *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <span *ngIf="password.errors.required">
+                                Password is required.
+                            </span>
+                            <span *ngIf="password.errors.minlength">
+                                Password length must be greater than 4.
+                            </span>
+                        </div>
+                        
+                        <div class="form-group form-button">
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

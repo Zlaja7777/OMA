@@ -1,0 +1,192 @@
+<div class="container shadoww">
+    <h2 class="form-title" style="padding: 5%; " *ngIf = "!editMode">Add new offer</h2>
+    <h2 class="form-title" style="padding: 5%; " *ngIf = "editMode">Edit offer</h2>
+
+    <form id="offer-form" (ngSubmit)="onSubmit()" #offerForm="ngForm">
+        
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name"><span class="material-icons">
+                            assignment 
+                    </span></label>
+                <input type="text" id="name" placeholder="Name" name="name" required
+                                            #name="ngModel" ngModel />
+                </div>
+                <div class="alert-div" *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <span *ngIf="name.errors.required">
+                        Offer name is required.
+                    </span>
+                </div>
+             </div>             
+            
+         
+        
+
+            <div class="col-md-6">
+                <div class="form-group" style="top: -1px;">
+                    <label for="clientId" id="clientLabel"><span class="material-icons">
+                        person
+                    </span>
+                    </label>
+                <select style="
+                box-shadow: none; " name="clientId" id="client" required 
+                    #clientId="ngModel" [(ngModel)]="fromClientID" placeholder="Select a client">
+                <option [ngValue]="undefined"  >Select a client</option>
+                                        <option  *ngFor="let item of clients" [value] = item.id>
+                                            {{ item.name }}</option>
+                                            
+                </select>
+                <button style="border: none; height: 35px; padding: 0%; width: 40%;"   type="submit" routerLink="/app/clients/new" class="btnn" [disabled]="!clientId.invalid">
+                    Add client
+                </button>  
+                                    
+                                    
+                </div>
+                <div class="alert-div" *ngIf="clientId.invalid && (clientId.dirty || clientId.touched)">
+                    <span *ngIf="clientId.errors.required">
+                                        Client is required.
+                    </span>
+                </div>    
+               
+            </div>
+          
+        </div>
+        <br>
+    
+    <div class="row"> 
+        <div class="col-md-6" >
+            <div class="form-group" >
+                <label for="startDate"  >Start date<span class="material-icons" >
+                        date
+                        </span></label>
+                    <input type="date" name="startDate" id="startDate" placeholder="Start date" required
+                            #startDate="ngModel" ngModel style="text-align: center;" (change)="CheckStartDate($event.target.value)"/>
+                            
+            </div>
+                           
+                    <div class="alert-div" *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)" >
+                        <span *ngIf="startDate.errors.required">
+                            Start date is required.
+                        </span>
+                        
+                    </div>
+                    <div class="alert-div" *ngIf="checkStartDate" >
+                        <span >
+                            Start date is not valid.
+                        </span>
+                        
+                    </div>
+                    
+                   
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="endDate" id="mob">End date<span class="material-icons">
+                         date
+            </span></label>
+                    <input type="date" name="endDate" id="endDate" placeholder="End date" required
+                            #endDate="ngModel" ngModel style="text-align: center;" (change)="CheckEndDate($event.target.value)"/>
+            </div>
+            <div class="alert-div" *ngIf="endDate.invalid && (endDate.dirty || endDate.touched)">
+                    <span *ngIf="endDate.errors.required" >
+                        End date is required.
+                    </span>
+            </div>
+            <div class="alert-div" *ngIf="checkEndDate">
+                <span  >
+                    End date is not valid.
+                </span>
+        </div>
+               
+        </div> 
+           
+            
+    </div>        
+    <br>
+
+    <div class="row">
+            <div class="col-md-6">
+                <div class="form-group" >
+                    <label for="price"><span class="material-icons">
+                            credit_card
+                            </span></label>
+                        <input type="number" name="price" id="price" placeholder="Price" required
+                                    #price="ngModel" ngModel style="font-weight: bold; text-align: center;" (keyup) = "CheckPrice($event.target.value)" />
+                </div>
+                <div class="alert-div" *ngIf="price.invalid && (price.dirty || price.touched)">
+                    <span *ngIf="price.errors.required">
+                                    Price is required.
+                    </span>
+                
+                </div>
+                <div class="alert-div" *ngIf="checkPrice">
+                    <span >
+                             Price is must be greater than 0.
+                    </span>
+                
+                </div>
+            </div>
+           
+            <div class="col-md-6">
+                 <div class="form-group" >
+                        <label for="currencyId"><span class="material-icons">
+                            monetization_on
+                        </span></label>
+                <select name="currencyId" id="currency" required 
+                        #currencyId="ngModel" [(ngModel)]="fromCurrencyID">
+                                <option [ngValue]="undefined" style="text-align: center;" selected disabled>Select currency</option>
+                                <option *ngFor="let item of currency" [value] = item.id >
+                                    {{ item.name }}
+                                </option>
+                </select>
+                </div>
+                <div class="alert-div" *ngIf="currencyId.invalid && (currencyId.dirty || currencyId.touched)">
+                        <span *ngIf="currencyId.errors.required">
+                             Currency is required.
+                        </span>
+                 </div>
+            </div>
+                        
+        </div>
+                    
+        <br>
+        <div class="row">
+            
+            <div class="col-md-12">
+        <div class="form-group" >
+            <label for="description"><span class="material-icons" >
+                description
+            </span></label>
+            <textarea type="text" name="description" id="description" placeholder="Description" 
+                    required #description="ngModel" ngModel> </textarea>
+         </div>
+                    <div class="alert-div"
+                        *ngIf="description.invalid && (description.dirty || description.touched)">
+                        <span *ngIf="description.errors.required">
+                            Description is required.
+                        </span>
+                        <span *ngIf="description.errors.minlength">
+                            Enter valid description.
+                        </span>
+                    </div>
+        </div>
+       
+    </div>
+            <input type="hidden" name="clientId" ngModel />
+            <input type="hidden" name="statusId" ngModel />
+            <input  type="hidden" name="deadlineExceeded" ngModel />
+
+                
+        <div>
+            <button style="border: none;" type="submit" class="btnn" [disabled]="!offerForm.valid" [disabled] = "checkStartDate"  [disabled] = "checkPrice" [disabled]="checkEndDate" >
+                Submit
+            </button>
+        </div>
+    </div>
+    </form>
+    <br>
+</div>

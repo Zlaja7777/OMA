@@ -1,0 +1,65 @@
+
+
+    
+    <button mat-button mat-dialog-close  style="float: right;" >Close</button>
+    <div *ngIf="offer.StatusId == 1 || offer.StatusId == 2 || offer.StatusId == 4">
+    <button mat-button mat-dialog-close  routerLink="/app/my-offers/{{offer.OfferId}}">More</button>
+    <h5 style="text-align: center;">Offer details</h5>
+    </div>
+    <div *ngIf="offer.StatusId == 3 || offer.StatusId == 5">
+        <button mat-button mat-dialog-close  routerLink="/app/my-projects/{{offer.OfferId}}">More</button>
+        <h5 style="text-align: center;">Project details</h5>
+        </div>
+<div class="details">
+    <div class="row">
+        <div class="col-md left">
+            <div class="box shadoww">
+                <div class="group">
+                    <div class="col-md-5">
+                    <h6 class="names">Project name: </h6> 
+                    </div>
+                    <p id="mob">{{ offer.Name }}</p>
+                </div>
+                <hr/>
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6 class="names">Start date: </h6> 
+                    </div>
+                    <p id="mob">{{ offer.StartDate | date:'mediumDate'}}</p>
+                </div>
+                <hr/>
+                <div class="group">
+                    <div class="col-md-5">
+                    <h6 class="names">End Date: </h6> 
+                </div>
+                    <p id="mob">{{ offer.EndDate | date:'mediumDate' }}</p>
+                </div>   <hr/>
+                
+                <div class="group">
+                    <div class="col-md-5">
+                    <h6 class="names">Total time: </h6> 
+                </div>
+                    <p id="mob">{{ offer.TotalTimeDays }} working days</p>
+                </div>
+                <hr/>
+                
+                
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6 class="names">Description: </h6> 
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <div class="col-md-5">  
+                    </div>
+                    <p id="mob2">{{ offer.Description }} </p>
+
+                </div>
+
+               
+            </div>
+            
+        </div>
+    </div>
+</div>

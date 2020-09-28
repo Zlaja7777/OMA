@@ -1,0 +1,134 @@
+<div *ngIf="checkUserBool">
+    <h1>ERROR: NOT FOUND 404</h1>
+</div>
+<div *ngIf="!checkUserBool">
+<button class="col-xs-3" style="margin-left: 35px; background-color: 
+#6dabe4; margin-bottom: 15px; border: none; height: 35px; color: white; margin-top: 2px;
+" class="btn btnn-bg" routerLink="/app/my-offers"><span class="material-icons">
+        keyboard_backspace
+</span></button>
+<div class="offers">
+<div class="row">
+
+    <div class="col-md-8 left">
+        <div class="box shadoww">
+            <h3>{{offer.Name}}</h3>
+            <br>
+            <div class="group-details">
+                <div class="group">
+                <div class="col-md-5">
+                    <h6>Start date:</h6>
+                </div>
+                <p id="mob">{{offer.StartDate | date:'mediumDate'}}</p>
+                    
+                </div>
+                <hr/>
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6>End date:</h6>
+                    </div>  
+                       <p id="mob">{{offer.EndDate | date:'mediumDate'}}</p>
+                </div>
+                <hr/>
+
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6>Total time:</h6>
+                    </div>
+                   
+                    <p id="mob">{{offer.TotalTimeDays}} working days ({{offer.TotalTimeHours}} hrs)</p>
+                </div>
+                <hr/>
+                <div class="group">
+                    <div class="col-md-5">
+                        <h6>Total price:</h6>
+                    </div>
+                       <p id="mob" style="font-weight:bold;">{{totalPrice}}</p>
+                </div>
+                <hr/>
+                
+                <div class="group">
+                    <div class="col-md-5">
+                    <h6>Status: </h6>
+                    </div>  
+                    <p class="badge" [ngClass]="{'bag-accepted': status == 'Accepted',
+                    'bag-done': status == 'Done',
+                    'bag-waiting': status == 'Waiting',
+                    'bag-in-progress': status == 'In progress',
+                    'bag-denied': status == 'Denied'}">
+                        {{ status }}</p>
+                    
+                </div>
+                <hr/>
+
+                <div class="group">
+                    <div class="col-md-5">
+                         <h6>Client:</h6>
+                    </div>
+                    
+                    <p id="mob" >{{client}}</p>
+                </div>
+                <hr/>
+
+                <div class="group">
+                    <div class="col-md-5">
+                         <h6>Description:</h6>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="col-md-5">
+                    </div>
+                    <p  id="desc">{{offer.Description}}</p>
+                </div>
+                
+
+            </div>
+           
+        </div>
+    </div>
+
+    
+        
+
+
+    <div class="col-md-4-right" style="margin-left: 30px;">
+
+       
+  
+        <div class="box-buttons">
+            
+            
+          
+             <button type="button" class="btnn btnn-bg" routerLink="/app/create-offer/{{offer.OfferId}}/edit">Edit</button>
+            <button type="button"  style="background-color: white; color: #222222;" class="btnn btnn-bg shadoww" (click) = "onRemove(offer.OfferId)" >Remove</button> 
+            <mat-form-field class="mat-elevation-z0">
+                <button [ngClass]="{'bag-accepted': status == 'Accepted',
+                'bag-done': status == 'Done',
+                'bag-waiting': status == 'Waiting',
+                'bag-in-progress': status == 'In progress',
+                'bag-denied': status == 'Denied'}" style="height: 60px; color: white; border: none; border-radius: 10px;width: 280px; margin-top: -10px; padding-top: 14px;">Status:  {{ status }} <span class="material-icons" style="float: right;" >keyboard_arrow_down</span></button>
+              <mat-select class="mat-elevation-z0"  class="mySelectClass"
+              panelClass="myPanelClass">
+                <mat-option class="mat-elevation-z0" *ngFor="let status of statusList" (click) = "ChangeStatus(status.statusId)" [value]="status.statusId" style="height: auto; box-shadow: none; ">
+                    <button [ngClass]="{'bag-accepted': status.name == 'Accepted',
+                    'bag-done': status.name == 'Done',
+                    'bag-waiting': status.name == 'Waiting',
+                    'bag-in-progress': status.name == 'In progress',
+                    'bag-denied': status.name == 'Denied'}" style="height: 60px; color: white; border: none; border-radius: 10px;width: 280px;margin-top: 20px;"  >{{status.name}}</button>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <br>
+        
+            
+       
+        
+    </div>
+</div>
+</div>
+</div>
+
+
+<!-- <span class="material-icons" style="float: right;">keyboard_arrow_down</span> -->

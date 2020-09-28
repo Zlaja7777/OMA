@@ -1,0 +1,53 @@
+<div class="dashboard"> 
+    <div>
+        <h4>All offers</h4>
+        <div class="dashboard-offers">
+            <div class="row search-row">
+                <div class="col-md-10" >
+                    <input class="search-input shadoww" type="text" placeholder="search" (keyup)="onKeyPress($event.target.value)">
+                    <span class="material-icons search-icon">
+                        search
+                        </span>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" routerLink="/app/create-offer" class="btnn" style="background-color: #6dabe4;" >Add offer</button>
+                </div>
+            </div>
+            <div class="wrap-table100 shadoww" *ngIf="offersList.length != 0" >
+                <div class="table100">
+                    <table class="tablee shadoww">
+                        <thead>
+                            <tr>
+                                <td class="column1">Offer name</td>
+                                <td class="column2">Client</td>
+                                <td class="column3">Status</td>
+                                <td class="column4">Total price</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let offer of offersList " (click) = "openDialog(offer.offerId)">
+                                
+                                <td>{{ offer.offerName }}</td>
+                                <td>{{ offer.client }}</td>
+                                <td>
+                                    <p class="badge" [ngClass]="{'bag-accepted': offer.status == 'Accepted',
+                                    'bag-done': offer.status == 'Done',
+                                    'bag-waiting': offer.status == 'Waiting',
+                                    'bag-in-progress': offer.status == 'In progress',
+                                    'bag-denied': offer.status == 'Denied'}">
+                                        {{ offer.status }}</p>
+                                </td>
+                                <td>{{ offer.totalPrice }}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="offersList.length == 0" class="empty-box shadoww">
+                <h6>There are no offers.</h6>
+            </div>
+        </div>
+    </div>
+    
+</div>

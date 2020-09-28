@@ -1,0 +1,11 @@
+/* @media screen and (max-width: 720px) {
+    .application-navigation {
+        flex: 0;
+        width: 0;
+    }
+
+    .application-main {
+        margin-left: 0;
+        border-top-left-radius: 0;
+    }
+} */

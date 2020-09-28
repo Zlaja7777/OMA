@@ -1,0 +1,22 @@
+.sidenav {
+  width: 200px;
+  background: rgb(34,34,34);
+  background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(48,48,48,1) 99%);
+  transform: none;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fafafa;
+}
+
+.application-content {
+  min-height: 100vh;
+  background-color: rgb(250, 250, 250);
+}

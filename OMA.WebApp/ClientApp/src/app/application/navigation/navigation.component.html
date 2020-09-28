@@ -1,0 +1,37 @@
+<div class="navigation">
+    <div class="navigation-logo">
+        <img src="../../../assets/logo-small.png" alt="Logo">
+    </div>
+    <div class="navigation-link">
+        <ul>
+            <li><span class="material-icons">
+                dashboard
+                </span><a routerLink="/app/dashboard" routerLinkActive="active">Dashboard</a></li>
+            <li><span class="material-icons">
+                local_offer
+                </span><a routerLink="/app/create-offer" routerLinkActive="active">Create offer</a></li>
+            <li><span class="material-icons">
+                turned_in
+                </span><a routerLink="/app/my-offers" routerLinkActive="active">My offers</a></li>
+            <li><span class="material-icons">
+                    work
+                    </span><a routerLink="/app/my-projects" routerLinkActive="active">My projects</a></li>
+            <li><span class="material-icons">
+                supervisor_account
+                </span><a routerLink="/app/clients" routerLinkActive="active">Clients</a></li>
+            <li><span class="material-icons">
+                how_to_reg
+                </span><a routerLink="/app/workers" routerLinkActive="active">Workers</a></li>
+        </ul>
+    </div>
+    <div class="navigation-logout">
+        <ul>
+            <li><span class="material-icons">
+                settings
+                </span><a routerLink="/app/settings" routerLinkActive="active">Settings</a></li>
+            <li><span class="material-icons">
+                power_settings_new
+                </span><a style="cursor: pointer;" (click)="onLogout()">Logout</a></li>
+        </ul>
+    </div>
+</div>

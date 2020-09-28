@@ -1,0 +1,66 @@
+<button mat-dialog-close style="width: 40px; height: 25px; float: right; padding: 0px; color: black; margin-top: -20px;" > x</button>
+
+<div class="container shadoww" style="margin-top: 10px;">
+    
+        <h6 class="form-title" style="padding: 5%; text-align: center;">Transaction for </h6>
+       
+    
+    <h6 class="form-title" style="text-align: center;color: #6dabe4; margin-top: -15px;" >{{offerName}} </h6>
+    <p *ngIf="!editMode" style="color: red; text-align: center; font-size: 12px; margin-top: -8px;"> (Remaining to pay: {{remainingToPay}} {{currency}})</p>
+    <p *ngIf="editMode" style="color: red; text-align: center; font-size: 12px; margin-top: -8px;"> (Remaining to pay: {{editTransaction}} {{currency}})</p>
+
+    <form id="transaction-form" (ngSubmit)="onSubmit()" #transactionForm="ngForm">
+      
+        <div class="container">
+
+            <div class="form-group">
+                <label for="date"><span class="material-icons">
+                        today 
+                </span>
+            </label>
+                <p  style="margin-top: 10px; font-weight: bold;" id="mob"> {{currentDateTime | date:'mediumDate'}}</p>
+                
+            </div>
+        <div style="width: 80%;">
+            <div class="form-group" style="margin-top: -10px;">
+                <label for="amount"><span class="material-icons">
+                        payment 
+                </span></label>
+            <input class="form-control"type="number" id="amount"   placeholder="Amount" name="amount" required
+                                        #amount="ngModel" ngModel style="text-align: center; font-size: 15px;" 
+                                          (keyup)="onKeyPress($event.target.value)" /> 
+                                        
+                       <div></div>          
+                       <h6 class="material-icons" style="font-size: 20px; margin-top: 5px; ">{{currency}}  </h6>  
+            </div>
+           
+           
+            <div class="alert-div"*ngIf="((amount.invalid) && (amount.dirty || amount.touched))" >
+                <span *ngIf="amount.errors.required">
+                    Amount is required.
+                </span>  
+                
+                
+            </div>
+            <div class="alert-div" *ngIf="maxChecker">
+                <span >
+                    Amount must be greater than 0 and  smaller than {{remainingToPay}} {{currency}}.
+                </span>
+             </div>
+             <div class="alert-div" *ngIf="maxCheckerEdit">
+                <span >
+                    Amount must be greater than 0 and  smaller than {{editTransaction}} {{currency}}.
+                </span>
+             </div>
+        </div>
+        <input type="hidden" name="oId" ngModel />
+            
+            <button style="border: none; width: 100%;" mat-dialog-close  type="submit" class="btnn" [disabled]="!transactionForm.valid" [disabled] = "maxChecker" [disabled] = "maxCheckerEdit" >
+                Submit
+            </button>
+        
+        </div>
+        <br>
+    </form>
+</div>
+

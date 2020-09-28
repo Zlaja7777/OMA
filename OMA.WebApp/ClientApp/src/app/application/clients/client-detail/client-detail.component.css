@@ -1,0 +1,60 @@
+.details {
+    background-color: rgb(250, 250, 250);
+    padding: 0 40px;
+    width: 100%;
+}
+
+.details .row{
+    min-height: 100vh;
+}
+
+.box {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+}
+
+.box-buttons {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.box-buttons button {
+    margin: 10px 0;
+    transform: translateX(0);
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.group p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.group .material-icons {
+    color: #6dabe4;
+}
+.group-details p {
+    margin: 2px 0;
+    color: #6dabe4;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.group-details p span {
+    color: #222222;
+    font-size: 15px;
+}
+
+
+.card-info p {
+    letter-spacing: 1px;
+}

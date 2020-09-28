@@ -1,0 +1,107 @@
+<button mat-dialog-close style="width: 40px; height: 25px; float: right; padding: 0px; color: black; margin-top: -20px;" > x</button>
+
+<div class="container shadoww" style="margin-top: 10px;">
+    
+        <h6 class="form-title" style="padding: 5%; text-align: center;">Task for </h6>
+       
+    
+    <h6 class="form-title" style="text-align: center;color: #6dabe4; margin-top: -15px;" >{{offerName}} </h6>
+
+    <form id="task-form" (ngSubmit)="onSubmit()" #taskForm="ngForm">
+      
+        <div class="container">
+
+            <div class="form-group">
+                <label for="date"><span class="material-icons">
+                        add_task 
+                </span>
+            </label>
+            <input class="form-control"type="text" id="name"   placeholder="Task name" name="name" required
+            #name="ngModel" ngModel style="text-align: center; font-size: 15px;" 
+                          /> 
+                
+            </div>
+            <div class="alert-div" *ngIf="name.invalid && (name.dirty || name.touched)">
+                <span *ngIf="name.errors.required">
+                                    Task name is required.
+                </span>
+            </div> 
+            
+            <div class="form-group" style="top: -1px;">
+                <label for="workerId" id="workerLabel"><span class="material-icons">
+                    person
+                </span>
+                </label>
+            <select name="workerId" id="worker" required 
+                #workerId="ngModel" [(ngModel)]="fromWorkerID" >
+            <option [ngValue]="undefined"  >Select a worker</option>
+                                    <option style="text-align: center;" *ngFor="let item of workers" [value] = item.id>
+                                        {{ item.name }}</option>
+                                        
+            </select>
+            <button  mat-dialog-close  style="border: none; height: 35px; padding: 0%; width: 40%;"   type="submit" routerLink="/app/workers/new" class="btnn" [disabled]="!workerId.invalid">
+                ADD
+            </button>  
+                                
+                                
+            </div>
+            <div class="alert-div" *ngIf="workerId.invalid && (workerId.dirty || workerId.touched)">
+                <span *ngIf="workerId.errors.required">
+                                    Worker is required.
+                </span>
+            </div> 
+            
+            <div class="form-group">
+                <label for="amount"><span class="material-icons">
+                        payment 
+                </span>
+            </label>
+            <input class="form-control"type="number" id="amount"   placeholder="Amount" name="amount" required
+            #amount="ngModel" style="font-weight: bold;" ngModel style="text-align: center; font-size: 15px;" (keyup)="onKeyPressAmount($event.target.value)"
+                          /> 
+                          <h6 class="material-icons" style="font-size: 20px; margin-top: 5px; font-weight: bolder; ">{{currency}}  </h6>  
+                
+            </div>
+            <div class="alert-div" *ngIf="amount.invalid && (amount.dirty || amount.touched)">
+                <span *ngIf="amount.errors.required">
+                            Amount is required.
+                </span>
+            </div>
+
+            <div class="alert-div" *ngIf="amountChecker">
+                <span>
+                    Amount must be greater than 0 and smaller than the total budget of the project ({{remainingMoney}} {{currency}}).
+                </span>
+             </div>
+
+            <div class="form-group">
+                <label for="workDays"><span class="material-icons">
+                        date_range 
+                </span>
+            </label>
+            <input class="form-control"type="number" id="workDays"   placeholder="Work days" name="workDays" required
+            #workDays="ngModel" ngModel style="text-align: center; font-size: 15px;" (keyup)="onKeyPressDays($event.target.value)"
+                          /> 
+                           
+                
+            </div>
+            <div class="alert-div" *ngIf="workDays.invalid && (workDays.dirty || workDays.touched)">
+                <span *ngIf="workDays.errors.required">
+                            Work days are required.
+                </span>
+            </div>  
+            <div class="alert-div" *ngIf="dayChecker">
+                <span>
+                    Work days must be greater than 0 and smaller than the total days of the project ({{ days }}) .
+                </span>
+             </div>
+            
+            <button style="border: none; width: 100%;" mat-dialog-close   type="submit" class="btnn" [disabled]="!taskForm.valid" [disabled] ="dayChecker" [disabled] ="dayChecker" >
+                Submit
+            </button>
+        
+        </div>
+        <br>
+    </form>
+</div>
+

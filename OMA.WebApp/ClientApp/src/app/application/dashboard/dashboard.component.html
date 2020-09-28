@@ -1,0 +1,208 @@
+<div class="dashboard">
+    <h3>Dashboard</h3>
+    <div class="dashboard-cards">
+        <div class="card text-waiting shadoww" routerLink="/app/my-offers/{{1}}/status">
+            <div class="card-left">
+                <span class="material-icons">
+                    hourglass_empty
+                </span>
+            </div>
+            <div class="card-right" >
+                <h4>{{ waitingOffers }}</h4>
+                <p>Waiting</p>
+            </div>
+        </div>
+        <div class="card text-accepted shadoww" routerLink="/app/my-offers/{{2}}/status">
+            <div class="card-left">
+                <span class="material-icons">
+                    check_circle_outline
+                </span>
+            </div>
+            <div class="card-right">
+                <h4>{{ acceptedOffers }}</h4>
+                <p>Accepted</p>
+            </div>
+        </div>
+        <div class="card text-in-progress shadoww" routerLink="/app/my-projects/{{3}}/status">
+            <div class="card-left">
+                <span class="material-icons">
+                    donut_large
+                </span>
+            </div>
+            <div class="card-right">
+                <h4>{{ inProgressOffers }}</h4>
+                <p>In Progress</p>
+            </div>
+        </div>
+        <div class="card text-denied shadoww" routerLink="/app/my-offers/{{4}}/status">
+            <div class="card-left">
+                <span class="material-icons">
+                    highlight_off
+                </span>
+            </div>
+            <div class="card-right">
+                <h4>{{ deniedOffers }}</h4>
+                <p>Denied</p>
+            </div>
+        </div>
+        <div class="card text-done shadoww"routerLink="/app/my-projects/{{5}}/status">
+            <div class="card-left">
+                <span class="material-icons">
+                    done_all
+                </span>
+            </div>
+            <div class="card-right">
+                <h4>{{ doneOffers }}</h4>
+                <p>Done</p>
+            </div>
+        </div>
+    </div>
+  
+    <!--Latest offers-->
+    <div>
+        <h4>Latest offers</h4>
+        <div class="dashboard-offers mb-4">
+            <div class="wrap-table100 shadoww" *ngIf="offersList.length != 0">
+                <div class="table100">
+                    <table class="tablee shadoww">
+                        <thead>
+                            <tr>
+                                <td class="column1">Offer name</td>
+                                <td class="column2">Client</td>
+                                <td class="column3">Status</td>
+                                <td class="column4">Total price</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let offer of offersList | slice: 0:5; let i=index" (click) = "openDialog(offer.offerId)" > 
+                                <td >{{ offer.offerName }}</td>
+                                <td>{{ offer.client }}</td>
+                                <td>
+                                    <p class="badge" [ngClass]="{'bag-accepted': offer.status == 'Accepted',
+                                    'bag-done': offer.status == 'Done',
+                                    'bag-waiting': offer.status == 'Waiting',
+                                    'bag-in-progress': offer.status == 'In progress',
+                                    'bag-denied': offer.status == 'Denied'}">
+                                        {{ offer.status }}</p>
+                                </td>
+                                <td>{{ offer.totalPrice }}</td>
+                            </tr>
+                            <a class="btn" routerLink="/app/my-offers">More ...</a>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="offersList.length == 0" class="empty-box shadoww">
+                <h6>There are no offers.</h6>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4>Latest active projects</h4>
+        <div class="dashboard-offers mb-4">
+            <div class="wrap-table100 shadoww" *ngIf="activeProjectsList.length != 0">
+                <div class="table100">
+                    <table class="tablee shadoww">
+                        <thead>
+                            <tr>
+                                <td class="column1">Offer name</td>
+                                <td class="column2">Client</td>
+                                <td class="column3">Status</td>
+                                <td class="column4">Total price</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let offer of activeProjectsList | slice: 0:5; let i=index" (click) = "openDialog(offer.offerId)" >
+                                <td>{{ offer.offerName }}</td>
+                                <td>{{ offer.client }}</td>
+                                <td>
+                                    <p class="badge" [ngClass]="{'bag-accepted': offer.status == 'Accepted',
+                                    'bag-done': offer.status == 'Done',
+                                    'bag-waiting': offer.status == 'Waiting',
+                                    'bag-in-progress': offer.status == 'In progress',
+                                    'bag-denied': offer.status == 'Denied'}">
+                                        {{ offer.status }}</p>
+                                </td>
+                                <td>{{ offer.totalPrice }}</td>
+                            </tr>
+                            <a class="btn" routerLink="/app/my-projects/{{3}}/status">More ...</a>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="activeProjectsList.length == 0" class="empty-box shadoww">
+                <h6>There are no active projects.</h6>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4>Latest finished projects</h4>
+        <div class="dashboard-offers mb-4">
+            <div class="wrap-table100 shadoww" *ngIf="finishedProjectsList.length != 0">
+                <div class="table100">
+                    <table class="tablee shadoww">
+                        <thead>
+                            <tr>
+                                <td class="column1">Offer name</td>
+                                <td class="column2">Client</td>
+                                <td class="column3">Status</td>
+                                <td class="column4">Total price</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let offer of finishedProjectsList | slice: 0:5; let i=index" (click) = "openDialog(offer.offerId)">
+                                <td>{{ offer.offerName }}</td>
+                                <td>{{ offer.client }}</td>
+                                <td>
+                                    <p class="badge" [ngClass]="{'bag-accepted': offer.status == 'Accepted',
+                                    'bag-done': offer.status == 'Done',
+                                    'bag-waiting': offer.status == 'Waiting',
+                                    'bag-in-progress': offer.status == 'In progress',
+                                    'bag-denied': offer.status == 'Denied'}">
+                                        {{ offer.status }}</p>
+                                </td>
+                                <td>{{ offer.totalPrice }}</td>
+                            </tr>
+                            <a class="btn" routerLink="/app/my-projects/{{5}}/status">More ...</a>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="finishedProjectsList.length == 0" class="empty-box shadoww">
+                <h6>There are no finished projects.</h6>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <h4>Clients</h4>
+        <div class="dashboard-clients">
+            <div class="wrap-table100 shadoww" *ngIf="clientList.length != 0">
+                <div class="table100">
+                    <table class="tablee shadoww">
+                        <thead>
+                            <tr>
+                                <td class="column1">Client</td>
+                                <td class="column2">Company</td>
+                                <td class="column3">Phone number</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let client of clientList | slice: 0:5; let i=index" routerLink="/app/clients/{{ client.ClientId }}">
+                                <td>{{ client.FullName }}</td>
+                                <td>{{ client.CompanyName }}</td>
+                                <td>{{ client.PhoneNumber }}</td>
+                            </tr>
+                            <a class="btn" routerLink="/app/clients">More ...</a>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="clientList.length == 0" class="empty-box shadoww">
+                <h6>There are no clients.</h6>
+            </div>
+        </div>
+    </div>
+</div>
+

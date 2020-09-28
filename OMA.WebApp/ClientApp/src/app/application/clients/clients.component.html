@@ -1,0 +1,38 @@
+<div class="clients">
+    <h3>Clients</h3>
+
+    <div class="client-content">
+        <div class="row search-row">
+            <div class="col-md-10">
+                <input class="search-input shadoww" type="text" placeholder="search" (keyup)="onKeyPress($event.target.value)">
+                <span class="material-icons search-icon">
+                    search
+                    </span>
+            </div>
+            <div class="col-md-2">
+                <button type="button" routerLink="/app/clients/new" class="btnn">Add client</button>
+            </div>
+        </div>
+        <div class="table-content">
+            <table class="tablee shadoww first-two" *ngIf="clientList.length != 0">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Company</td>
+                        <td>Phone number</td>
+                        </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clientList" routerLink="/app/clients/{{ client.ClientId }}">
+                        <td>{{ client.FullName }}</td>
+                        <td>{{ client.CompanyName }}</td>
+                        <td>{{ client.PhoneNumber }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="clientList.length == 0">
+                No clients
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<div  *ngIf="checkUserBool">
+    <h1>ERROR: NOT FOUND 404</h1>
+</div>
+<div *ngIf="!checkUserBool">
+    <div class="group">
+<button class="col-xs-3" style="margin-left: 35px; background-color: 
+#6dabe4; margin-bottom: 15px; border: none; height: 35px; color: white; margin-top: 2px;
+" class="btn btnn-bg" routerLink="/app/my-projects/{{offerId}}"><span class="material-icons">
+        keyboard_backspace
+</span></button> <h4 style="margin-top: 0px; margin-left: 50px; color: #6dabe4;">Tasks for {{offerName}}</h4>
+</div>
+<div class="row">
+    <div class="dashboard-offers col-md-9" >
+        <div class="wrap-table100"  *ngIf="projectTasks.length != 0" >
+            <div class="table100">
+                <table class="table table-borderless" style="margin-left: 30px;" >
+                    <thead>
+                        <tr style="font-weight: bold;">
+                            
+                            <td class="column1">Task name</td>
+                            <td class="column2">Worker</td>
+                            <td class="column3">Amount</td>
+                            <td class="column4">Work days</td>
+                            <td class="column5">Paid</td>
+                            <td class="column6">Actions</td>
+                            
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor="let p of projectTasks; let i = index" style=" border: 1px solid rgb(201, 193, 193);
+                        border-collapse: collapse; border-top:none; border-left: none; 
+                        ">                            
+                            <td id="rows" style="color: #6dabe4;">{{p.name}}</td>
+                         
+                            <td id="rows">{{p.worker}}</td>
+                        
+                            <td style="font-weight:bold" id="rows">{{p.amount}}  {{currency}}</td>
+                            <td style="font-weight:bold" id="rows">{{p.workDays}}</td>
+                            <td *ngIf="!p.paid"><button type="button"class="btn btn-danger" (click)="[ChangePaidStatus(p.projectTasksId)]" >No</button></td>
+                            <td *ngIf="p.paid"><button type="button"class="btn btn-danger" (click)="[ChangePaidStatus(p.projectTasksId)]" style="background-color: #6dabe4;" >Yes</button></td>
+                            
+                            <td  *ngIf="!p.paid">
+                                <button type="button"class="btn btn-danger" 
+                                      (click) = "[openEditDialog(offerId, p.projectTasksId)]" style="background-color: #6dabe4;">Edit</button> 
+                                    
+                                 <button type="button"class="btn btn-danger"  (click) = "Delete(p.projectTasksId)">Delete</button>
+                               
+                            </td>
+                            <td *ngIf="p.paid" >
+                                <button type="button"class="btn btn-danger"  [disabled] = "p.paid" style="background-color: #a2c6e9;">Edit</button> 
+                                    
+                                 <button type="button"class="btn btn-danger"   [disabled] = "p.paid" >Delete</button>
+                            </td>
+                    
+               
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="projectTasks.length == 0" class="empty-box shadoww" style="padding: 10px; text-align: center;">
+            <h6>There are no tasks.</h6>
+            <br> 
+        </div>
+    
+    </div>
+        
+    <div class="col-md-3 right "  style="width: 100%" >
+            <div class="box-buttons" >
+                <button type="button"  id="mobButton"class="btn btn-success"  style="height: 60px; margin-top: 20px; width: 80%"  (click) = "[openDialog(offerId)]" >Add task</button>
+            </div>
+        <div class="box shadoww" style="width: 80%;">
+                    <h6 style="color: #6dabe4;">Task details</h6>
+                    <hr />
+                    <div class="group" style="margin-bottom: 10px; text-align: center;">
+                        Finished: <p style="color: #6dabe4; font-weight: bold;">{{this.numberOfFinishedTasks}}</p> <p> of</p> <p style="color: #6dabe4; margin-right: 12px; font-weight: bold;" >{{numberOfTasks}}</p>  tasks
+                       
+                    </div>
+                    <p style="color: #6dabe4; text-align: center; font-weight: bold;">{{progresTasks}} % </p>
+                    <mat-progress-bar class="box-buttons" mode="determinate" style="width: 100%; height: 20px;" value="{{progresTasks}}">
+                        <p style="color: #6dabe4; ">({{progresTasks}} %) </p>
+                        </mat-progress-bar>
+        </div>
+    </div>
+
+</div>
+</div>

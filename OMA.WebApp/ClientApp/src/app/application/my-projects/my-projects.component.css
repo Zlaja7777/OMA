@@ -1,0 +1,417 @@
+.dashboard {
+    padding: 0 40px;
+    color: #222222;
+}
+
+.dashboard h3 {
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: rgb(253, 253, 253);
+    padding: 25px 15px;
+    width: 200px;
+    height: 100px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 10px;
+}
+
+.card p {
+    color: rgb(77, 77, 77);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card-left {
+    align-items: stretch;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card-left span {
+    font-size: 50px;
+}
+
+.card-right {
+    flex: 1;
+}
+
+/* offers */
+.dashboard-offers, .dashboard-clients {
+    margin-right: -50px !important; 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.dashboard table th {
+    color: rgb(247, 247, 247);
+    font-weight: normal;
+  
+ 
+}
+
+.dashboard table td {
+    color: rgb(43, 43, 43);
+    padding: 28px;
+
+}
+
+.badge {
+  padding: 8px;
+  color: white;
+}
+
+.btn-details {
+  background: #6dabe4;
+    color: #fff;
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.empty-box {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+td span {
+  color: #6dabe4;
+  cursor: pointer;
+}
+
+td span:hover {
+  color: #2676c2;
+}
+.shadoww{
+  margin-left: 0px;
+ 
+}
+a.btn {
+  float: right;
+  background-color: transparent;
+  color: #222222;
+  font-size: 14px;
+  margin: 0 10px 10px 0;
+}
+
+/* tbody > tr:last-child {
+  color: red !important; 
+} */
+
+@media scren and (max-width: 992px)
+{
+  /* .dashboard table td {
+    padding: 0;
+  } */
+}
+
+@media screen and (max-width: 700px) {
+  .dashboard {
+    padding: 0;
+}
+.dashboard h4, .dashboard h3 {
+    text-align: center;
+}
+}
+
+@media screen and (max-width: 576px) {
+
+    .container-table100 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/*table*/
+
+  
+  /* ------------------------------------ */
+  a {
+      margin: 0px;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+  
+  a:focus {
+      outline: none !important;
+  }
+  
+  a:hover {
+      text-decoration: none;
+  }
+  
+  /* ------------------------------------ */
+  h1,h2,h4,h5,h6 {margin: 0px;}
+  
+  p {margin: 0px;}
+  
+  ul, li {
+      margin: 0px;
+      list-style-type: none;
+  }
+  
+  
+  /* ------------------------------------ */
+  input {
+    display: block;
+      outline: none;
+      border: none !important;
+  }
+  
+  textarea {
+    display: block;
+    outline: none;
+  }
+  
+  textarea:focus, input:focus {
+    border-color: transparent !important;
+  }
+  
+  /* ------------------------------------ */
+  button {
+      outline: none !important;
+      border: none;
+      background: transparent;
+  }
+  
+  iframe {
+      border: none !important;
+  }
+  
+  /*//////////////////////////////////////////////////////////////////
+  [ Table ]*/
+  
+  table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+ 
+
+  }
+  table * {
+    position: relative;
+
+  }
+  /* table td, table th {
+    padding-left: 8px;
+  } */
+  table tbody tr:last-child {
+    border: 0;
+  }
+  table td, table th {
+    text-align: left;
+    
+  }
+  table td.l, table th.l {
+    text-align: right;
+  }
+  table td.c, table th.c {
+    text-align: center;
+  }
+  table td.r, table th.r {
+    text-align: center;
+  }
+  
+  
+  .table100-head th{
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: unset;
+    
+  }
+  
+  /* tbody tr:not(:last-child) {
+    border-bottom: 1px solid rgba(201, 201, 201, 0.589);
+  } */
+  
+  tbody tr {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: unset;
+  }
+
+  
+  
+  .column1 {
+    width: 260px;
+    padding-left: 40px;
+  }
+  
+  .column2 {
+    width: 160px;
+  }
+  
+  .column3 {
+    width: 245px;
+  }
+  
+  .column4 {
+    width: 110px;
+    text-align: right;
+  }
+  
+  .column5 {
+    width: 170px;
+    text-align: right;
+  }
+  
+  .column6 {
+    width: 222px;
+    text-align: right;
+    padding-right: 62px;
+  }
+  
+  
+  @media screen and (max-width: 992px) {
+    table {
+      display: block;
+   
+    }
+    table > *, table tr, table td, table th {
+      display: block;
+    }
+    table thead {
+      display: none;
+    }
+    table tbody tr {
+      height: auto;
+      padding: 37px 0;
+    }
+    table tbody tr td {
+      padding-left: 40% !important;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    table tbody tr td:last-child {
+      margin-bottom: 0;
+    }
+    table tbody tr td:before {
+      font-size: 14px;
+      color: #999999;
+      line-height: 1.2;
+      font-weight: unset;
+      position: absolute;
+      width: 40%;
+      left: 30px;
+      top: 0;
+    }
+
+    .dashboard table tbody tr td:before {
+        color: rgb(104, 104, 104);
+        font-weight: bold;
+        padding: 20px;
+    }
+
+    .dashboard-offers table tbody tr td:nth-child(1):before {
+      content: "Offer name";
+    }
+    .dashboard-offers table tbody tr td:nth-child(2):before {
+      content: "Client";
+    }
+    .dashboard-offers table tbody tr td:nth-child(3):before {
+      content: "Status";
+    }
+    .dashboard-offers table tbody tr td:nth-child(4):before {
+      content: "Total price";
+    }
+    .dashboard-offers table tbody tr td:nth-child(5):before {
+      content: "";
+    }
+
+    .dashboard-clients table tbody tr td:nth-child(1):before {
+        content: "Client";
+      }
+      .dashboard-clients table tbody tr td:nth-child(2):before {
+        content: "Company";
+      }
+      .dashboard-clients table tbody tr td:nth-child(3):before {
+        content: "Phone";
+      }
+      .dashboard-clients table tbody tr td:nth-child(4):before {
+        content: "City";
+      }
+      .dashboard-clients table tbody tr td:nth-child(5):before {
+        content: "";
+      }
+  
+    .column4,
+    .column5,
+    .column6 {
+      text-align: left;
+    }
+  
+    .column4,
+    .column5,
+    .column6,
+    .column1,
+    .column2,
+    .column3 {
+      width: 100%;
+    }
+  
+    tbody tr {
+      font-size: 14px;
+    }
+  }
+
+  .row input, .row button {
+    width: 100%;
+    height: 100%;
+}
+
+.search-input {
+    border: none;
+    background-color: white;
+    outline: none;
+    margin-left: 5px;
+    padding: 16px 16px 16px 64px !important;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: .5em;
+    border-radius: 10px;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 110px;
+    justify-content: center;
+    color: gray;
+}
+
+.search-row {
+    margin-bottom: 40px;
+}
+
+.search-row > div {
+    margin: 10px 0;
+}

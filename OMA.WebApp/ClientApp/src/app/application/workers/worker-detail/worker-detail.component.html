@@ -1,0 +1,121 @@
+<div *ngIf="loggedUser">
+    <h1>ERROR 404 NOT FOUND</h1>
+</div>
+<div *ngIf="!loggedUser">
+<div class="details">
+    <div class="row">
+        <div class="col-md-8 left">
+            <div class="box shadoww">
+                <h3>{{ worker.FirstName + " " +  worker.LastName }}</h3>
+                <div class="group-details">
+                    
+                    <p>{{ worker.Email }}</p>
+                    <p>{{ worker.PhoneNumber }}</p>
+                </div>
+            </div>
+            <div class="box shadoww">
+                <div class="group-details card-info">
+                    <h3>Bank account info</h3>
+                    <p><span>Bank Account Number:</span> &nbsp;&nbsp; {{ worker.BankAccountNumber }}</p>
+                   
+                </div>
+            </div>
+            <div class="box shadoww">
+                <h3>Projects</h3>
+                <table *ngIf="offerList.length != 0" class="tablee" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <td>Project</td>
+                            <td>Task</td>
+                            <td>Amount</td>
+                            <td>Work days</td>
+                            <td>Paid</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let offer of offerList">
+                            <td>{{ offer.Name }}</td>
+                            <td>{{ offer.Position }}</td>
+                            <td>{{ offer.Amount }}</td>
+                            <td>{{offer.WorkDays}}</td>
+
+                            <td *ngIf="offer.Paid">Yes</td>
+                            <td *ngIf="!offer.Paid">No</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="offerList.length == 0">
+                    <p>No projects</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 right">
+            <div class="box shadoww">
+                <div class="group">
+                    <span class="material-icons">
+                        person
+                    </span>
+                    <p>{{ worker.FirstName + " " +  worker.LastName }}</p>
+                </div>
+
+               
+
+                <div class="group">
+                    <span class="material-icons">
+                        phone_iphone
+                    </span>
+                    <p>{{ worker.PhoneNumber }}</p>
+                </div>
+
+                <div class="group">
+                    <span class="material-icons">
+                        location_on
+                    </span>
+                    <div>
+                        <p>{{ worker.Country}}</p>
+                        <p>{{ worker.City}}</p>
+                        <p>{{ worker.Address + " " + worker.StreetNumber}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box-buttons">
+                <button type="button" routerLink="/app/workers/{{ worker.WorkerId }}/edit" class="btnn btnn-bg">Edit</button>
+                <button type="button" style="background-color: white; color: #222222;" (click) = "Remove(worker.WorkerId)" class="btnn btnn-bg shadoww">Remove</button>
+            </div>
+            <!-- <div class="box shadoww">
+                <div class="group">
+                    <div class="col-md-6">
+                        <h6>Number of projects: </h6> 
+                    </div>
+                    <h6 id="num"> {{ numberOfProjects }}</h6>
+                </div>
+                <div class="group">
+                    <div class="col-md-6">
+                        <h6>Active projects:  </h6>
+                    </div> 
+                    <h6 id="num"> {{activeProjects}}</h6>
+                </div>
+                 <div class="group">
+                    <div class="col-md-6">
+                        <h6>Finished projects: </h6>
+                    </div>
+                     <h6 id="num">{{finishedProjects}}</h6>
+                 </div>
+                 <div class="group">
+                    <div class="col-md-6">
+                        <h6>Paid: </h6>
+                    </div>
+                     <h6 id="num">{{paidProjects}}</h6>
+                 </div>
+                 <div class="group">
+                    <div class="col-md-6">
+                        <h6>Remaining to pay: </h6>
+                    </div>
+
+                        <h6 id="num">{{remainingToPay}}</h6>
+                 </div>
+            </div> -->
+        </div>
+    </div>
+</div></div>

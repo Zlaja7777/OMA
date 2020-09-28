@@ -1,0 +1,76 @@
+<div  *ngIf="checkUserBool">
+    <h1>ERROR: NOT FOUND 404</h1>
+</div>
+<div *ngIf="!checkUserBool">
+    <div class="group">
+<button class="col-xs-3" style="margin-left: 35px; background-color: 
+#6dabe4; margin-bottom: 15px; border: none; height: 35px; color: white; margin-top: 2px;
+" class="btn btnn-bg" routerLink="/app/my-projects/{{offerId}}"><span class="material-icons">
+        keyboard_backspace
+</span></button> <h4 style="margin-top: 0px; margin-left: 80px; color: #6dabe4;">Transactions for {{offerName}}</h4>
+</div>
+
+<div class="row">
+    <div class="col-md-8 left" style="margin-top: 10px;">
+        <div class="wrap-table100 shadoww" *ngIf="transactions.length != 0" >
+            <div class="table100">
+                <table class="tablee shadoww" >
+                    <thead>
+                        <tr>
+                            
+                            <td class="column2">Date</td>
+                            <td class="column3">Amount</td>
+                            <td class="column4">Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor="let t of transactions; let i = index" id= "mob" >
+                            
+                            <td id="rowDate" style="color: #6dabe4">{{ t.date | date:'mediumDate' }}</td>
+                            <td style="font-weight:bold" id="rows">{{t.amount}}  {{currency}}</td>
+                           
+                            <td>
+                                <button type="button"class="btn btnn-bg" style="background-color: #6dabe4; color: white; margin-top: -10px; margin-right: 2px;"
+                                    (click)="[openEditDialog(t.transactionId, offerId)] " id="novi">Edit</button>
+                                    
+                                <button type="button"class="btn btn-danger" id="novi2" style=" color: white; margin-top: -10px;" (click) = "[Delete(t.transactionId)]">Delete</button>
+                               
+                            </td>
+                    
+                            <hr/>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="transactions.length == 0" class="empty-box shadoww" style="padding: 10px; text-align: center;">
+            <h6>There are no transactions.</h6>
+            <br> 
+        </div>
+    
+    </div>
+        
+    <div class="col-md-4 right" >
+            <div class="box-buttons" >
+                <button type="button"  class="btn btn-success" (click) = "[openDialog(offerId)]" style="height: 60px;" [hidden]= isItPaid >Add transaction</button>
+            </div>
+            <div class="box shadoww" >
+                <h6 style="color: #6dabe4;">Payment details</h6>
+                <hr />
+                <div class="group" style="margin-bottom: 5px;">
+                    Paid <p style="color: #6dabe4;">{{paidInMoney}} </p> <p> of</p> <p style="color: #6dabe4; " >{{totalPrice}}</p>
+                    <p style="color: #6dabe4;"> ({{progress}}%) </p>
+                </div>
+                <div class="group" style="margin-bottom: 10px;">
+                    Remaining to pay: <p style="color: #6dabe4; font-weight: bold;">{{remainingToPay}}</p> 
+                </div>
+                
+                     <mat-progress-bar class="box-buttons" mode="determinate" style="width: 100%; height: 20px;" value="{{progress}}"></mat-progress-bar>
+                   
+                </div> 
+    </div>
+
+</div>
+</div>
