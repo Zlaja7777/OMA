@@ -5,5 +5,5 @@ OMA is a web application made with .NET Core and Angular. It is about creating a
 Later on you can add transactions and tasks for that project. By creating a task, you will have to add a worker that will be responsible
 for it. 
 
-The app is live here: http://daavid-001-site1.atempurl.com . 
+The app is live here: http://wearedigiqal-001-site2.itempurl.com. 
 Enjoy!
