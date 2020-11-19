@@ -1,4 +1,4 @@
-# OMA
+# OMA - Offer management application
 To easily manage your projects.
 
 OMA is a web application built on top of Angular powered by .NET Core. It is about creating an offer that can be transfered to a project. 
