@@ -7,6 +7,6 @@ for it.
 
 The app is live here: http://wearedigiqal-001-site2.itempurl.com. 
 
-## Login -> Email: test@gmail.com | Password: qweasd
+### Login -> Email: test@gmail.com | Password: qweasd
           
 Enjoy!
